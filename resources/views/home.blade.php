@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    御器所の音楽室へようこそ!
+                    大矢の日記へようこそ!
                     <a href="../">掲示板へ行く</a>
                 </div>
             </div>
