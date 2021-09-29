@@ -68,12 +68,12 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/posts/index') }}">御器所の音楽室へ</a>
+                        <a href="{{ url('/posts/index') }}">OYAの日記へ</a>
                     @else
                         <a href="{{ route('login') }}">ただいま！（ログイン）</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">御器所の音楽室メンバーになる</a>
+                            <a href="{{ route('register') }}">OYAの日記メンバーになる</a>
                         @endif
                     @endauth
                 </div>
