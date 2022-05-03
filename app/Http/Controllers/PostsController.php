@@ -43,7 +43,8 @@ class PostsController extends Controller
         ]);
             // $request->imgはformのinputのname='img'の値です
             // ->storeメソッドは別途説明記載します
-            $path = $request -> imagePath -> store('public/images');
+            $file = $request -> file('imagePath');
+            $path = Storage::disk('s3')->putFile('/', $file, 'public');
             // パスから、最後の「ファイル名.拡張子」の部分だけ取得します 例)sample.jpg
             $imagePath = basename($path);
             //user_id取得
