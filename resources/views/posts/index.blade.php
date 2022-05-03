@@ -80,7 +80,8 @@
         <div class="col-sm-4 mb-1">
             <div class="card">
                 @isset($post->imagePath)
-                <div class="d-flex justify-content-center align-items-center flex-column"> <img src={{asset('storage/images/' . $post->imagePath)}} aria-label="Image cap" width="100%"></div>
+                <div class="d-flex justify-content-center align-items-center flex-column">
+                    <img src="data:image/png;base64,{{asset('storage/images/' . $post->imagePath)}}" aria-label="Image cap" width="100%"></div>
                 @else
                         <div class="d-flex justify-content-center align-items-center" style="width:auto; height:200px;"></div>
                 @endisset
