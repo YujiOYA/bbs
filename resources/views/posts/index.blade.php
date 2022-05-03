@@ -5,7 +5,7 @@
     <div class="mb-4">
         @if (Auth::check())
         <a href="{{ route('posts.create') }}" class="btn btn-primary">
-            投稿を新規作成する
+            投稿を新規作成する!
         </a>
         @endif
     </div>
