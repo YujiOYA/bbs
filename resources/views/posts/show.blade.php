@@ -19,9 +19,9 @@
         </div>
         @endif
     @endif
-    @isset( $post->imagePath)
-        <a href={{asset('storage/images/'. $post->imagePath) }}>
-        <img class="img-fluid" src={{asset('storage/images/'. $post->imagePath) }}></a>
+    @isset($post->imagePath)
+        <a href={{Storage::disk('s3')->url($post->imagePath)}}>
+        <img src={{Storage::disk('s3')->url($post->imagePath)}}></a>
         @endisset
         <h1 class="h5 mb-4">
             {{ $post->title }}

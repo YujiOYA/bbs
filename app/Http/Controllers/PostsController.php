@@ -52,7 +52,7 @@ class PostsController extends Controller
             // FileImageをインスタンス化(実体化)します
             $posts = new Post;
             // 登録する項目に必要な値を代入します
-            $params['imagePath'] = $imagePath;
+            $params['imagePath'] = $path;
             $params['user_id'] = $user_id;
 
             // データベースに保存します
