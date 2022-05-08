@@ -21,7 +21,7 @@
     @endif
     @isset($post->imagePath)
         <a href={{Storage::disk('s3')->url($post->imagePath)}}>
-        <img src={{Storage::disk('s3')->url($post->imagePath)}}></a>
+        <img src={{Storage::disk('s3')->url($post->imagePath)}} style='max-width: 700px; width: 100%;'></a>
         @endisset
         <h1 class="h5 mb-4">
             {{ $post->title }}
