@@ -101,18 +101,19 @@ class PostsController extends Controller
             'body' => 'required|max:2000',
             'imagePath' =>'nullable'
         ]);
-            $post = Post::findOrFail($post_id);
             // $request->imgはformのinputのname='img'の値です
-            Storage::delete('public/image/' . $post->imagePath);
             // ->storeメソッドは別途説明記載します
-            $path = Storage::putFile('public/images', $request->file('imagePath'));
-            // $path = $request -> file('imagePath') -> store('public/images');
+            $file = $request -> file('imagePath');
+            $path = Storage::disk('s3')->putFile('/', $file, 'public');
             // パスから、最後の「ファイル名.拡張子」の部分だけ取得します 例)sample.jpg
-
             $imagePath = basename($path);
-            $posts = new Post;
+            //user_id取得
+            $user_id = Auth::user()->id;
             // FileImageをインスタンス化(実体化)します
-            $params['imagePath'] =$imagePath;
+            $posts = new Post;
+            // 登録する項目に必要な値を代入します
+            $params['imagePath'] = $path;
+            $params['user_id'] = $user_id;
             // データベースに保存します
             $post->fill($params)->save();
             return redirect()->route('posts.show', ['post' => $post]);
