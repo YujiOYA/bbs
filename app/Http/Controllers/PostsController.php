@@ -110,7 +110,7 @@ class PostsController extends Controller
             //user_id取得
             $user_id = Auth::user()->id;
             // FileImageをインスタンス化(実体化)します
-            $posts = new Post;
+            $post = new Post;
             // 登録する項目に必要な値を代入します
             $params['imagePath'] = $path;
             $params['user_id'] = $user_id;
