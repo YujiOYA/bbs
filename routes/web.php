@@ -17,7 +17,7 @@ Route::get('posts', 'PostsController@index');
 Route::post('posts/confirms', 'PostsController@confirm');
 Route::resource('comments', 'CommentsController', ['only' => ['store']]);
 Route::resource('posts', 'PostsController', ['only' => ['store','update','index','show','create','destroy','edit']]);
-Auth::routes();
+Auth::routes(['/','PostsController@index']);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('phpinfo', 'phpinfoController@index');
 Route::get('Comments', 'CommentsController@index');

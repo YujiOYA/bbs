@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use App\Post;
 use App\User;
-use App\Confirm;
 
 class PostsController extends Controller
 {
@@ -142,6 +142,7 @@ class PostsController extends Controller
     public function destroy($post_id)
     {
         $post = Post::findOrFail($post_id);
+        $s3_delete = Storage::disk('s3')->delete($post['imagePath']);
 
         DB::transaction(function () use ($post) {
             $post->comments()->delete();
