@@ -81,7 +81,7 @@
             <div class="card">
                 @isset($post->imagePath)
                 <div class="d-flex justify-content-center align-items-center flex-column">
-                    <img src={{Storage::disk('s3')->url($post->imagePath)}} aria-label="Image cap" width="100%"></div>
+                    <img src={{Storage::disk('s3')->url($post->imagePath)}} aria-label="Image cap" width="auto" height='200px'></div>
                 @else
                         <div class="d-flex justify-content-center align-items-center" style="width:auto; height:200px;"></div>
                 @endisset
