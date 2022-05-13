@@ -83,7 +83,7 @@
                 <div class="d-flex justify-content-center align-items-center flex-column">
                     <img src={{Storage::disk('s3')->url($post->imagePath)}} aria-label="Image cap" width="auto" height='200px'></div>
                 @else
-                        <div class="d-flex justify-content-center align-items-center" style="width:auto; height:200px;"></div>
+                        <div class="d-flex justify-content-center align-items-center" style="width:auto; height:200px; overflow:hidden; display: flex; align-items: center; justify-content:center;"></div>
                 @endisset
                         <div class="card-body">
                             <h5 class="">
